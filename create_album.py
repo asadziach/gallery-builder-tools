@@ -31,7 +31,7 @@ for image in images: # Loop through the images
 
 html_str = str(a)
 
-soup = BeautifulSoup("<b></b>")
+soup = BeautifulSoup("<b></b>", "html.parser")
 original_tag = soup.b
 for video in videos:
   new_tag = soup.new_tag("video controls", src=f'{folder}/{video}')
@@ -41,3 +41,4 @@ html_str += soup.prettify()
 
 with open(output, 'w') as f:
     f.write(html_str)
+    print(output, "Ready.")

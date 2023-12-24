@@ -10,9 +10,11 @@ else:
   folder = "./"
   output = 'all.html' # The name of the output file
 
+image_suffixes = ('jpg','jpeg', 'jfif', 'pjpeg', 'pjp','webm', 
+                   'gif', 'png', 'apng', 'avif', 'svg', 'webp')
 images = [] # Create an empty list for the images
 for file in os.listdir(folder): # Loop through the files in the folder
-  if file.endswith('.jpg'): # Check if the file is a jpg image
+  if file.endswith(image_suffixes): # Check if the file is a jpg image
     images.append(file) # Append the file name to the images list
 
 a = Airium() # Create an HTML document object

@@ -5,7 +5,7 @@ This project builds a picture and video gallery HTML page provided photos and vi
 Automatically generates thumbnails for photos and videos
 Supports various image and video formats (jpg, png, gif, mp4, webm, etc.)
 Responsive layout that adapts to different screen sizes
-Customizable appearance with CSS variables
+It will support customizable appearance with CSS variables in future.
 ## Installation
 To use this project, you need to have python 3.12.1 or newer installed.
 

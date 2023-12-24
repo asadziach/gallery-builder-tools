@@ -1,5 +1,4 @@
 import os
-from airium import Airium
 from bs4 import BeautifulSoup
 import sys
 
@@ -22,22 +21,18 @@ for file in os.listdir(folder): # Loop through the files in the folder
   elif file.endswith(video_suffixes):
     videos.append(file) # Append the file name to the images list
 
-
-a = Airium() # Create an HTML document object
-
-for image in images: # Loop through the images
-  with a.div():
-    a.img(src=f'{folder}/{image}')
-
-html_str = str(a)
-
 soup = BeautifulSoup("<b></b>", "html.parser")
 original_tag = soup.b
-for video in videos:
+
+for image in images: # Loop through the images
+  new_tag = soup.new_tag("img", src=f'{folder}/{image}')
+  original_tag.append(new_tag)
+
+for video in videos: # Loop through the videos
   new_tag = soup.new_tag("video controls", src=f'{folder}/{video}')
   original_tag.append(new_tag)
 
-html_str += soup.prettify()
+html_str = soup.prettify()
 
 with open(output, 'w') as f:
     f.write(html_str)
